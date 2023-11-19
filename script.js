@@ -38,7 +38,6 @@ const checkEmpty = () => {
     nameIn.classList.remove('input-box-error')
     error1.classList.remove('error')
     error1.classList.add('hidden')
-    result1 = true
   }
 
   if (!numIn.value) 
@@ -46,14 +45,12 @@ const checkEmpty = () => {
     numIn.classList.add('input-box-error')
     error2.classList.add('error')
     error2.classList.remove('hidden')
-    result1 = false
   }
   else
   {
     numIn.classList.remove('input-box-error')
     error2.classList.remove('error')
     error2.classList.add('hidden')
-    result1 = true
   }
 
   if (!monthIn.value) 
@@ -61,14 +58,12 @@ const checkEmpty = () => {
     monthIn.classList.add('input-box-error')
     error3.classList.add('error')
     error3.classList.remove('hidden')
-    result1 = false
   }
   else
   {
     monthIn.classList.remove('input-box-error')
     error3.classList.remove('error')
     error3.classList.add('hidden')
-    result1 = true
   }
 
   if (!yearIn.value) 
@@ -76,14 +71,12 @@ const checkEmpty = () => {
     yearIn.classList.add('input-box-error')
     error3.classList.add('error')
     error3.classList.remove('hidden')
-    result1 = false
   }
   else
   {
     yearIn.classList.remove('input-box-error')
     error3.classList.remove('error')
     error3.classList.add('hidden')
-    result1 = true
   }
 
   if (!CVCIn.value) 
@@ -91,13 +84,20 @@ const checkEmpty = () => {
     CVCIn.classList.add('input-box-error')
     error4.classList.add('error')
     error4.classList.remove('hidden')
-    result1 = false
   }
   else
   {
     CVCIn.classList.remove('input-box-error')
     error4.classList.remove('error')
     error4.classList.add('hidden')
+  }
+
+  if (!nameIn.value || !numIn.value || !monthIn.value || !yearIn.value || !CVCIn.value) 
+  {
+    result1 = false
+  }
+  else 
+  {
     result1 = true
   }
 }
@@ -160,6 +160,14 @@ const checkValid = () => {
     CVCIn.classList.remove('input-box-error')
     error4.classList.remove('error')
     error4.classList.add('hidden')
+    result2 = true
+  }
+
+  if (!regexNum.test(numIn.value) || !regexMonth.test(monthIn.value) || !regexYear.test(yearIn.value) || !regexCVC.test(CVCIn.value))
+  {
+    result2 = false
+  }
+  else{
     result2 = true
   }
 }
